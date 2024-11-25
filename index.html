@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Gallery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark  fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Art Gallery</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#news">News</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#artists">Artists</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Login|Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <section id="home" class="home-section d-flex justify-content-center align-items-center">
+        <div class="container text-center">
+            <h1 class="animated-title">Welcome to Art Gallery</h1>
+            <p class="subtitle">Discover stunning art pieces and connect with amazing artists.</p>
+            <button class="animated-button">
+                <a href="#gallery" class="animated-button">Explore Now</a>
+            </button>
+        </div>
+    </section>
+
+    <br>
+    <section id="gallery" class="my-5">
+        <div class="container">
+            <h3 class="text-center text-white">Art Gallery</h3><br>
+
+            <!-- Filter Buttons -->
+            <div class="text-center mb-4 d-flex justify-content-center flex-wrap gap-3">
+                <button class="btn btn-primary filter-btn" onclick="filterSelection('all')">Show All</button>
+                <button class="btn btn-primary filter-btn" onclick="filterSelection('portraits')">Portraits</button>
+                <button class="btn btn-primary filter-btn" onclick="filterSelection('abstract')">Abstract</button>
+                <button class="btn btn-primary filter-btn" onclick="filterSelection('landscapes')">Landscapes</button>
+                <button class="btn btn-primary filter-btn" onclick="filterSelection('nature')">Nature</button>
+            </div>
+
+            <!-- Artwork Items -->
+            <div class="row">
+                <div class="col-md-4 filter-item portraits">
+                    <img src="https://picsum.photos/800/400?random=5" class="img-fluid service-img" alt="Portrait 1"
+                        onclick="openArtworkModal('Portrait 1', 'Artist Name 1', '150 USD', '20x25 cm', 'Description of Portrait 1', 'https://picsum.photos/800/400?random=5', 'https://artist-profile-link1.com')">
+                    <h5 class="mt-2">Portrait 1</h5>
+                </div>
+                <div class="col-md-4 filter-item portraits">
+                    <img src="https://picsum.photos/800/400?random=5" class="img-fluid service-img" alt="Portrait 2"
+                        onclick="openArtworkModal('Portrait 2', 'Artist Name 2', '200 USD', '25x30 cm', 'Description of Portrait 2', 'https://picsum.photos/800/400?random=5', 'https://artist-profile-link2.com')">
+                    <h5 class="mt-2">Portrait 2</h5>
+                </div>
+                <div class="col-md-4 filter-item abstract">
+                    <img src="https://picsum.photos/800/400?random=6" class="img-fluid service-img" alt="Abstract 1"
+                        onclick="openArtworkModal('Abstract 1', 'Artist Name 3', '300 USD', '30x40 cm', 'Description of Abstract 1', 'https://picsum.photos/800/400?random=6', 'https://artist-profile-link3.com')">
+                    <h5 class="mt-2">Abstract 1</h5>
+                </div>
+                <div class="col-md-4 filter-item landscapes">
+                    <img src="https://picsum.photos/800/400?random=7" class="img-fluid service-img" alt="Landscape 1"
+                        onclick="openArtworkModal('Landscape 1', 'Artist Name 4', '250 USD', '35x45 cm', 'Description of Landscape 1', 'https://picsum.photos/800/400?random=7', 'https://artist-profile-link4.com')">
+                    <h5 class="mt-2">Landscape 1</h5>
+                </div>
+                <div class="col-md-4 filter-item nature">
+                    <img src="https://picsum.photos/800/400?random=6" class="img-fluid service-img" alt="Nature 1"
+                        onclick="openArtworkModal('Nature 1', 'Artist Name 5', '220 USD', '28x36 cm', 'Description of Nature 1', 'https://picsum.photos/800/400?random=6', 'https://artist-profile-link5.com')">
+                    <h5 class="mt-2">Nature 1</h5>
+                </div>
+
+            </div>
+
+        </div>
+    </section>    
+</div>
+
+
+
+    <section id="news" class="bg-dark text-white py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">The News</h2>
+            <p>Stay informed with the latest updates, emerging trends, timeless classics, styles, and events in the art world.</p>
+        </div>
+
+
+        <!--Blog Posts-->
+        <div id="blog" class="container mt-4">
+            <div class="row">
+                <!-- Blog Entries -->
+                <div class="col-md-8" id="blog-posts">
+                    <h2 class="mb-4">*******</h2>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <h5 class="card-header">Categories</h5>
+                        <div class="card-body">
+                            <ul class="list-group" id="blog-list">
+                                <!-- Blog links will be inserted here -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- Artwork Detail Modal -->
+    <div class="modal fade" id="artworkModal" tabindex="-1" aria-labelledby="artworkModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="artworkModalLabel">Artwork Title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <!-- Artwork Image -->
+                            <img id="artworkImage" src="" alt="Artwork Image" class="img-fluid rounded">
+                        </div>
+                        <div class="col-md-6">
+                            <!-- Artwork Details -->
+                            <p><strong>Artist:</strong> <span id="artworkArtist"></span></p>
+                            <p><strong>Price:</strong> <span id="artworkPrice"></span></p>
+                            <p><strong>Size:</strong> <span id="artworkSize"></span></p>
+                            <p><strong>Description:</strong> <span id="artworkDescription"></span></p>
+                            <a id="artistProfileLink" href="#" target="_blank" class="btn btn-primary">View Artist Profile</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <!--<button type="button" class="btn btn-success">Checkout</button>-->
+                    <a href="checkout.html" class="btn btn-success">Checkout</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login | Register</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Nav tabs for switching between Login and Register -->
+                    <ul class="nav nav-tabs" id="loginTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login" type="button" role="tab">Login</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="register-tab" data-bs-toggle="tab" data-bs-target="#register" type="button" role="tab">Register</button>
+                        </li>
+                    </ul>
+
+                    <!-- Tab content for Login and Register forms -->
+                    <div class="tab-content mt-3">
+                        <!-- Login Form -->
+                        <div class="tab-pane fade show active" id="login" role="tabpanel">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="loginEmail" class="form-label">Email address</label>
+                                    <input type="email" class="form-control" id="loginEmail" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="loginPassword" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="loginPassword" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Login</button>
+                            </form>
+                        </div>
+
+                        <!-- Register Form -->
+                        <div class="tab-pane fade" id="register" role="tabpanel">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="registerEmail" class="form-label">Email address</label>
+                                    <input type="email" class="form-control" id="registerEmail" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="registerPassword" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="registerPassword" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="registerConfirmPassword" class="form-label">Confirm Password</label>
+                                    <input type="password" class="form-control" id="registerConfirmPassword" required>
+                                </div>
+                                <button type="submit" class="btn btn-success w-100">Register</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <footer class="text-center  text-white py-3">
+        <p>We are passionate about art and dedicated to promoting artists worldwide.</p>
+        <p>Our vision is to create a vibrant community where artists can showcase their work and connect with art enthusiasts.</p>
+        <p>We believe in the power of art to inspire, transform, and bring people together.</p>
+        <p>Join us on this journey to celebrate creativity and support the incredible talent of artists from around the globe.</p>
+        <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#contactModal">Contact Us</button>
+        <p>&copy; 2024 Art Gallery. All rights reserved.</p>
+    </footer>
+
+
+
+
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="contactModalLabel">Contact Us</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+body {
+    background-color: black;
+}
+
+.navbar {
+    background-color: #3A2F2B;
+}
+
+
+.p-about {
+    font-size: 27px;
+    background-color: dark;
+}
+
+
+
+
+/* Home Section Styling */
+.home-section {
+    height: 100vh;
+    /*background: linear-gradient(135deg, #C25A3D, #8A9A5B);*/
+    background-image: url('https://picsum.photos/200');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    text-align: center;
+    letter-spacing: 2.5px;
+}
+
+.animated-title {
+    color: #fff; /* White text for better contrast */
+    font-size: 3em;
+    animation: fadeIn 2s ease-in-out infinite alternate;
+}
+
+.subtitle {
+    color: #fff;
+    margin-top: 10px;
+    font-size: 1.2em;
+    opacity: 0.8;
+}
+
+.animated-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: white;
+    background-color: #3A2F2B;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    text-decoration: none;
+    letter-spacing: 2px;
+}
+
+.animated-button:hover {
+    transform: scale(1.1);
+}
+
+
+/* Define keyframes for slide-in effect for galllery */
+@keyframes slideIn {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+}
+
+/* Apply animation to buttons */
+.filter-btn {
+    animation: slideIn 0.8s ease-out;
+    animation-fill-mode: forwards;
+    background-color: #3A2F2B;
+}
+
+/* Add staggered delays for each button */
+.filter-btn:nth-child(1) {
+    animation-delay: 0.1s;
+}
+.filter-btn:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.filter-btn:nth-child(3) {
+    animation-delay: 0.3s;
+}
+.filter-btn:nth-child(4) {
+    animation-delay: 0.4s;
+}
+.filter-btn:nth-child(5) {
+    animation-delay: 0.5s;
+}
+.filter-btn:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Remove underline from links in the categories list in news section */
+#blog-list .list-group-item a {
+    text-decoration: none; 
+}
+
+
+
+/* welcome text */
+h1 {
+    text-shadow: 0 0 5px #ff7e5f, 0 0 10px #ff7e5f, 0 0 15px #feb47b;
+}
+
+
+
+
+
+h3 {
+    text-align: center;
+    letter-spacing: 7px;
+    font-size: 90px;
+  }
+
+  h3 {
+    width: 100%;
+    font-weight: bold;
+    font-size: 40px;
+    position: relative;
+    margin: 40px 0;
+  }
+
+  h3::before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 3px;
+    background-color: crimson;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: animate 4s linear infinite;
+  }
+
+  @keyframes animate {
+    0% {
+      width: 100px;
+    }
+    50% {
+      width: 200px;
+    }
+    100% {
+      width: 100px;
+    }
+  }
+
+
+
+
+
+/* gallery images*/
+.service-img {
+    filter: grayscale(100%);
+    transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 7px;
+  }
+
+  .service-img:hover {
+    transform: scale(1.1);
+    filter: grayscale(0%);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border-color: #007bff;
+  }
+
+.btn-dark {
+    background-color: #3A2F2B;
+}
+
